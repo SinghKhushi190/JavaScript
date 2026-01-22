@@ -1,1 +1,3 @@
 # JavaScript
+*This repository is created for learning and practice purposes and 
+                          will be updated with more examples and projects over time.*
