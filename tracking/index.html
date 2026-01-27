@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Habit Tracker</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #111827;
+    }
+    .app {
+      background: #ffffff;
+      width: 400px;
+      padding: 24px;
+      border-radius: 20px;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+      animation: fadeIn 0.6s ease;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    h1 { text-align: center; color: #4f46e5; font-size: 26px; }
+    .subtitle { text-align: center; font-size: 14px; color: #6b7280; margin-bottom: 14px; }
+    .greeting { text-align: center; font-weight: 600; margin-bottom: 6px; }
+    .quote { text-align: center; font-size: 13px; color: #374151; margin-bottom: 18px; }
+    .input-group { display: flex; gap: 10px; margin-bottom: 14px; }
+    input { flex: 1; padding: 10px; border-radius: 10px; border: 1px solid #d1d5db; }
+    input:focus { outline: none; border-color: #4f46e5; }
+    button { border: none; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+    .add-btn { padding: 10px 14px; background: #4f46e5; color: white; }
+    .add-btn:hover { background: #4338ca; }
+    .progress { background: #e5e7eb; border-radius: 10px; height: 10px; margin: 12px 0; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #22c55e, #16a34a); transition: 0.4s; }
+    .progress-text { text-align: center; font-size: 13px; margin-bottom: 10px; }
+    .streak { text-align: center; font-size: 14px; font-weight: 600; margin-bottom: 12px; }
+    ul { list-style: none; }
+    li {
+      background: #f8fafc;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li.done { background: #ecfdf5; }
+    li.done span { text-decoration: line-through; color: #16a34a; }
+    .actions button { padding: 6px 10px; margin-left: 6px; }
+    .done-btn { background: #22c55e; color: white; }
+    .delete-btn { background: #ef4444; color: white; }
+    .empty { text-align: center; font-size: 14px; color: #9ca3af; margin-top: 16px; }
+    .confetti { position: fixed; font-size: 20px; animation: pop 1s ease forwards; }
+    @keyframes pop { 0% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-40px); } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>Habit Tracker</h1>
+    <p class="subtitle">Build better habits with clarity & consistency</p>
+    <p class="greeting" id="greeting"></p>
+    <p class="quote" id="quote"></p>
+
+    <div class="input-group">
+      <input id="habitInput" placeholder="Add a new habit" />
+      <button class="add-btn" onclick="addHabit()">Add</button>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <p class="progress-text" id="progressText"></p>
+    <p class="streak" id="streakText">🔥 Streak: 0 days</p>
+
+    <ul id="habitList"></ul>
+    <p class="empty" id="emptyText">No habits yet. Start today ✨</p>
+  </div>
+
+<script>
+  const habitInput = document.getElementById("habitInput");
+  const habitList = document.getElementById("habitList");
+  const emptyText = document.getElementById("emptyText");
+  const progressBar = document.getElementById("progressBar");
+  const progressText = document.getElementById("progressText");
+  const streakText = document.getElementById("streakText");
+  const greetingEl = document.getElementById("greeting");
+  const quoteEl = document.getElementById("quote");
+
+  const quotes = [
+    "Small habits. Big change.",
+    "Consistency beats motivation.",
+    "One habit today, a better tomorrow.",
+    "Progress, not perfection."
+  ];
+
+  const hour = new Date().getHours();
+  greetingEl.textContent = hour < 12 ? "Good Morning ☀️" : hour < 18 ? "Good Afternoon 🌤️" : "Good Evening 🌙";
+  quoteEl.textContent = quotes[Math.floor(Math.random() * quotes.length)];
+
+  let data = JSON.parse(localStorage.getItem("habitData")) || { habits: [], streak: 0, lastDone: null };
+
+  function save() { localStorage.setItem("habitData", JSON.stringify(data)); }
+
+  function render() {
+    habitList.innerHTML = "";
+    emptyText.style.display = data.habits.length === 0 ? "block" : "none";
+
+    let doneCount = data.habits.filter(h => h.done).length;
+    let percent = data.habits.length ? (doneCount / data.habits.length) * 100 : 0;
+    progressBar.style.width = percent + "%";
+    progressText.textContent = `${doneCount} / ${data.habits.length} habits completed`;
+    streakText.textContent = `🔥 Streak: ${data.streak} days`;
+
+    data.habits.forEach((h, i) => {
+      const li = document.createElement("li");
+      if (h.done) li.classList.add("done");
+      const span = document.createElement("span"); span.textContent = h.name;
+      const actions = document.createElement("div");
+      const doneBtn = document.createElement("button"); doneBtn.textContent = "✓"; doneBtn.className = "done-btn";
+      doneBtn.onclick = () => toggle(i);
+      const delBtn = document.createElement("button"); delBtn.textContent = "✕"; delBtn.className = "delete-btn";
+      delBtn.onclick = () => del(i);
+      actions.append(doneBtn, delBtn);
+      li.append(span, actions);
+      habitList.appendChild(li);
+    });
+  }
+
+  function addHabit() {
+    const name = habitInput.value.trim();
+    if (!name) return;
+    data.habits.push({ name, done: false });
+    habitInput.value = "";
+    save(); render();
+  }
+
+  function toggle(i) {
+    data.habits[i].done = !data.habits[i].done;
+    if (data.habits.every(h => h.done)) {
+      const today = new Date().toDateString();
+      if (data.lastDone !== today) data.streak++;
+      data.lastDone = today;
+    }
+    confetti(); save(); render();
+  }
+
+  function del(i) { data.habits.splice(i, 1); save(); render(); }
+
+  function confetti() {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.textContent = "🎉";
+    c.style.left = Math.random() * window.innerWidth + "px";
+    c.style.top = "50%";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 1000);
+  }
+
+  render();
+</script>
+</body>
+</html>
