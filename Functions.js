@@ -29,3 +29,13 @@ const func1 = (x)=>{
 func1(24);
 func1(54);
 func1(25);
+// Another Example:
+function getMilk(){
+    console.log("leave house");
+    console.log("move right");
+    console.log("move up");
+    console.log("move Right");
+    console.log("buyMilk");
+    console.log("move left");
+}
+getMilk();
