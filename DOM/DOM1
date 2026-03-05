@@ -1,0 +1,13 @@
+document;
+document.lastElementChild;
+document.firstElementChild;
+document.firstElementChild.firstElementChild;
+document.lastElementChild.firstElementChild;
+var heading = document.firstElementChild.lastElementChild.firstElementChild;
+heading;
+heading.innerHTML;
+' Hello World '
+heading.innerHTML = 'good boy';
+'good boy'
+heading.innerText = 'The Best';
+'The Best'
