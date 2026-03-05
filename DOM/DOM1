@@ -11,3 +11,5 @@ heading.innerHTML = 'good boy';
 'good boy'
 heading.innerText = 'The Best';
 'The Best'
+heading.style.color = 'red';
+
