@@ -13,3 +13,34 @@ heading.innerText = 'The Best';
 'The Best'
 heading.style.color = 'red';
 
+document.getElementsByTagName("li");
+document.getElementsByTagName("li").style.color = "red"; // This will not work because getElementsByTagName returns a collection, not a single element.
+document.getElementsByTagName("li")[2].style.color = "red"; // This will work because it targets the third <li> element (index 2) and changes its color to
+("red");
+document.getElementsByTagName("li").length;
+3;
+document.getElementsByClassName("btn");
+HTMLCollection[button.btn];
+document.getElementsByClassName("btn")[0].style.color = " purple";
+(" purple");
+document.getElementsByClassName("btn")[0].style.color = "orange";
+("orange");
+
+document.getElementById("title");
+/* <h1 id="title">Hello World</h1>; */
+document.getElementById("title").style.color = "blue";
+("blue");
+
+document.querySelector("h1");
+/* <h1 id="title" style="color: blue;">Hello World</h1>; */
+
+document.querySelector("#title");
+/* <h1 id="title" style="color: blue;">Hello World</h1>; */
+
+document.querySelector(".btn");
+/* <button class="btn" style="color: orange;">click me</button>; */
+
+document.querySelectorAll("li a");
+document.querySelector("li a ");
+/* <a href=​"https:​/​/​www.google.com">​Google​</a>​ */
+document.querySelector("a");
