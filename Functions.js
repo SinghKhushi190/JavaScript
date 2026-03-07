@@ -39,3 +39,24 @@ function getMilk(){
     console.log("move left");
 }
 getMilk();
+
+// Block Scope
+if(true){
+    const myName = 'fuck'
+    console.log(myName)
+}
+
+// function Scope
+function testFn(){
+    const myName = 'toggle'
+    console.log(myName)
+}
+testFn()
+
+// Global Scope
+const myNum = 100;
+function testFn(){
+        const myName = 'toggle'
+    console.log(myName)
+}
+testFn()
