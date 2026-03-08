@@ -100,3 +100,41 @@ const add2 = curriedSum(2)
 const add3 = add2(3)
 const add5 = add3(5)
 console.log(add5)  // 10
+
+// "this -> keyword" 
+// implicit binding
+const person = {
+    name : 'fuck-you',
+    sayMyName : function(){
+        console.log(`your name is ${this.name}`)
+    },
+
+}
+person.sayMyName()
+
+function sayMyName(){
+    console.log(`your name is ${this.name}`)
+}
+   sayMyName.call(person) // Explicite Binding
+
+function person(name){
+    this.name = name
+}
+const p1 = new person('vishwas')
+const p2 = new person('chutiya')   // New Binding
+
+
+// prototype 
+function person(fName , lName){
+  this.firstName = fName
+  this.lastName = lName
+}
+
+const person1 = new person('bruce' , 'wayne')
+const person2 = new person('clark' , 'Kent')
+
+person.prototype.getFullName = function(){
+    return this.firstName + ' ' + this.lastName
+}
+console.log(person1.getFullName())
+console.log(person2.getFullName())
