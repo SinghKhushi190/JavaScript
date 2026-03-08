@@ -1,10 +1,10 @@
-// title.style.color = 'red';
+title.style.color = 'red';
 
-// const listItems = document.querySelectorAll('.list-items');
+const listItems = document.querySelectorAll('.list-items');
 
-// for(i = 0; i < listItems.length; i++){
-//     listItems[i].style.frontSize = '2rem';
-// }
+for(i = 0; i < listItems.length; i++){
+    listItems[i].style.frontSize = '2rem';
+}
 
 
 // creating elements
@@ -16,3 +16,4 @@ ul.append(li);
 
 
 console.log();
+
