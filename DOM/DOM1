@@ -40,7 +40,7 @@ document.querySelector("#title");
 document.querySelector(".btn");
 /* <button class="btn" style="color: orange;">click me</button>; */
 
-document.querySelectorAll("li a");
-document.querySelector("li a ");
+document.querySelectorAll("li a")
+document.querySelector("li a ")
 /* <a href=​"https:​/​/​www.google.com">​Google​</a>​ */
-document.querySelector("a");
+document.querySelector("a")
