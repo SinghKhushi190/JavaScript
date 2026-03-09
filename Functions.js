@@ -160,3 +160,6 @@ SuperHero.prototype.fightCrime  = function(){
 SuperHero.prototype = Object.create(person.prototype)
 
 const batman = new SuperHero('Bruce' , 'Wayne')
+SuperHero.prototype.constructor = SuperHero
+console.log(batman.getFullName())
+
