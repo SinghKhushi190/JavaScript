@@ -138,3 +138,25 @@ person.prototype.getFullName = function(){
 }
 console.log(person1.getFullName())
 console.log(person2.getFullName())
+
+// Prototype Inheritance
+
+function person(fName , lName){
+    this.firstName = fName
+    this.lastName = lName
+} 
+
+person.prototype.getFullName = function(){
+    return this.firstName + ' ' + this.lastName
+}
+
+function SuperHero(){
+    person.call(this , fName , lName)
+    this.isSuperHero = true
+}
+SuperHero.prototype.fightCrime  = function(){
+    console.log('Fighting crime')
+}
+SuperHero.prototype = Object.create(person.prototype)
+
+const batman = new SuperHero('Bruce' , 'Wayne')
