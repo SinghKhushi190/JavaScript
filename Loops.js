@@ -38,7 +38,7 @@ for(const num of numArray){
     console.log('Iterartion' + num)
 }
 
-// iterable and iteration 
+// iterable and iteration with for loop
 const obj = {
     [Symbol.iterator] : function(){
         let step = 0
@@ -59,3 +59,4 @@ const obj = {
  for(const word of obj){
             console.log(word)
  }
+
