@@ -176,3 +176,15 @@ class Person{
 
 const classP1 = new Person('Bruce' , 'Wayne')
 console.log(classP1.sayMyName()) // Bruce Wayne
+// inherit person class in superhero class
+class SuperHero extends Person{
+    constructor(fName , lName){
+        super(fName , lName)
+        this.isSuperHero = true
+    }
+      fightCrime(){
+          console.log('Fighting crime')
+      }
+}
+const batman = new SuperHero('Spider' , 'Man')
+console.log(batman.sayMyName())
