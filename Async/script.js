@@ -1,19 +1,19 @@
-// async function getdata() {
-//   return new Promise ((resolve, reject)=>{
+async function getdata() {
+  return new Promise ((resolve, reject)=>{
 
   
-//   setTimeout(() => {
-//     resolve(455)
-//   }, 3500);
-//    })
-// }
+  setTimeout(() => {
+    resolve(455)
+  }, 3500);
+   })
+}
 async function getdata() {
-  // simulates getting data from a server
-// let x = await fetch('https://jsonplaceholder.typicode.com/todos/1')
-// let data = await x.json()
-// console.log(data)
-// console.log(x)
-// return data
+  simulates getting data from a server
+let x = await fetch('https://jsonplaceholder.typicode.com/todos/1')
+let data = await x.json()
+console.log(data)
+console.log(x)
+return data
 
 
 let x = await fetch('https://jsonplaceholder.typicode.com/todos/1',{
@@ -33,11 +33,9 @@ headers: {
 let data = await x.json()
 return data
 }
-
-// settle means resolve or rejects
-// resolve means promise has settles sucessfully
-// rejects means promise has not settled successfully
-
+// settle means resolve or rejects.
+// resolve means promise has settles sucessfully.
+// rejects means promise has not settled successfully.
 async function main(){
 console.log("Loading modules")
 
@@ -58,14 +56,15 @@ let data = await getdata()
 main()
 
 
-// data.then((value) => {
-//   console.log(data)
+data.then((value) => {
+  console.log(data)
 
-//   console.log("Process data")
+  console.log("Process data")
 
-//   console.log("task 2")
+  console.log("task 2")
 
-// })
+})
+
 
 
 
