@@ -24,6 +24,15 @@ const loadScript = (src, callback) => {
 }
 
 loadScript("http://google.com", callback)
-
-
+    
+function getData(dataID , getNextData){
+    setTimeout(() => {
+        console.log("data" , dataId);
+        if(getNextData){
+            getNextData();
+        }
+    }
+               getData(1 , () => {
+        getData(2)l;
+    });
 
