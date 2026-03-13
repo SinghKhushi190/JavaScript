@@ -24,7 +24,7 @@ const loadScript = (src, callback) => {
 }
 
 loadScript("http://google.com", callback)
-    
+    // callback
 function getData(dataID , getNextData){
     setTimeout(() => {
         console.log("data" , dataId);
@@ -32,7 +32,15 @@ function getData(dataID , getNextData){
             getNextData();
         }
     }
+        //  callback hell
                getData(1 , () => {
-        getData(2)l;
+        console.log("getting  data2 loaded....)
+        getData(2 , () => {
+              console.log("getting  data3 loaded....)
+                          getData( 3 , () => {
+                                console.log("getting  data4 loaded....)
+                                      getData(4);    
+                          });
+        });
     });
 
