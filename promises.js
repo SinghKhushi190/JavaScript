@@ -24,3 +24,35 @@ function getData(dataId , getNextData){
         }, 2000);
     });
 }
+
+function asyncFunction1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Async function1 executed');
+            resolve('Async function completed');
+        }, 2000);
+    });
+}
+// use .then and .catch
+function asyncFunction1() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Async function1 executed');
+            resolve('Async function completed');
+        }, 2000);
+    });
+}
+function asyncFunction2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Async function2 executed');
+            resolve('Async function completed');
+        }, 2000);
+    });
+}
+
+console.log("fetching data1...");
+asyncFunction1().then(res=> {
+    console.log("fetching data2...");
+     asyncFunction2().then(res=> { })
+})
