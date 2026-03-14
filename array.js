@@ -95,3 +95,58 @@ for(let val of items){
  }
 
  console.log(items);
+
+// Array Method
+let veggies = ["onion","tomato","potato","cabbage"];
+console.log(veggies);
+
+veggies.push("chips", "burger","panner");   // adds elements at the end
+console.log(veggies);
+
+veggies.pop();           // removes last element
+console.log(veggies);
+
+let deletedveggies = veggies.pop();  // removes last element and returns it
+console.log(veggies);
+console.log("Deleted", deletedveggies);
+
+console.log(veggies.toString());  // converts array to string
+
+let marks = [23,45,67,89,12];
+console.log(marks.toString());
+
+
+let marvelHeroes = ["thor", "ironman", "captain america"];
+let dcHeroes = ["superman", "batman", ];
+
+let heroes = marvelHeroes.concat(dcHeroes);  // merges two arrays
+console.log(heroes);
+
+
+let val = marvelHeroes.shift();  // removes first element and returns it
+console.log(marvelHeroes);
+console.log("deleted", val);
+
+console.log(marvelHeroes.slice(1,2));  // returns elements from start index1 to end index-1
+
+
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+// arr.splice(2, 2, 101, 102); // at index 2, removes 2 elements and adds 101, 102
+//Add Element
+// arr.splice(2, 0, 101);
+
+//Delete Element
+// arr.splice(3, 1);
+
+
+//Replace Element
+arr.splice(3, 1, 103);
+
+
+let company = ["Bloomberg", "Microsoft", "uber", "google", "IBM","Netflix"]
+
+company.splice(2, 1, "Ola");
+company.pop();
+company.push("AMZON");
+company.shift();
