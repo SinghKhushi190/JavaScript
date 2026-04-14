@@ -11,7 +11,7 @@ The Document Object Model (DOM) is a programming interface that represents an HT
 
 👉 JavaScript uses the DOM to:
 
-Access HTML elements
-Modify content
-Change styles
-Handle user events
+Access HTML elements</br>
+Modify content</br>
+Change styles</br>
+Handle user events</br>
