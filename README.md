@@ -4,7 +4,15 @@
 
 -> This repository is created for learning and practice purposes and 
                           will be updated with more examples and projects over time.</br>
--> in this section we are creating a tracking page with javascript , html , css.</br>
+
+# 🎯 tracking
+ 🧩 Add new habits using input and Add button
+ 🧩 Track progress (completed vs total habits)
+ 🧩 View streak to maintain consistency
+ 🧩 Time-based greeting for better experience
+ 🧩 Motivational message display
+ 🧩 Shows message when no habits are added
+
 # 🌐DOM
 
 The Document Object Model (DOM) is a programming interface that represents an HTML document as a tree structure, where each element is a node.
