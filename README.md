@@ -6,11 +6,11 @@
                           will be updated with more examples and projects over time.</br>
 
 # 🎯 tracking
- 🧩 Add new habits using input and Add button
- 🧩 Track progress (completed vs total habits)
- 🧩 View streak to maintain consistency
- 🧩 Time-based greeting for better experience
- 🧩 Motivational message display
+ 🧩 Add new habits using input and Add button</br>
+ 🧩 Track progress (completed vs total habits)</br>
+ 🧩 View streak to maintain consistency</br>
+ 🧩 Time-based greeting for better experience</br>
+ 🧩 Motivational message display</br>
  🧩 Shows message when no habits are added
 
 # 🌐DOM
