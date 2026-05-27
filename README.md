@@ -44,7 +44,7 @@ A clean, interactive **Habit Tracker** built with vanilla JavaScript, demonstrat
 └─────────────────────────────────────────────┘
 ```
  
-### ✨ Features
+###  Features
  
 | Feature | Description |
 |---|---|
@@ -115,17 +115,6 @@ open habit-tracker/index.html
  
 > No dependencies. No build tools. Just open and run. 🎉
  
----
- 
-## 🛣️ Roadmap
- 
-- [x] Habit Tracker with DOM manipulation
-- [x] Time-based greetings
-- [ ] LocalStorage persistence
-- [ ] ES6+ deep dive examples
-- [ ] Async / Await & Fetch API projects
-- [ ] Mini games with Canvas API
----
  
 ## 🤝 Contributing
  
